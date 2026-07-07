@@ -1,0 +1,21 @@
+{
+  "name": "kirimi-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Kirimi WhatsApp API",
+  "type": "module",
+  "bin": {
+    "kirimi-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "bun run src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/node": "^22.0.0"
+  }
+}
