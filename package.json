@@ -4,7 +4,7 @@
   "description": "MCP server for Kirimi WhatsApp API",
   "type": "module",
   "bin": {
-    "kirimi-mcp": "./dist/index.js"
+    "kirimi-mcp": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
