@@ -30,6 +30,15 @@
     "waba"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiriminow/kirimi-mcp.git"
+  },
+  "homepage": "https://github.com/kiriminow/kirimi-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/kiriminow/kirimi-mcp/issues"
+  },
+  "author": "Kirimi",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1"
   },
