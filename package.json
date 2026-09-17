@@ -1,16 +1,35 @@
 {
   "name": "kirimi-mcp",
-  "version": "1.0.0",
-  "description": "MCP server for Kirimi WhatsApp API",
+  "version": "1.1.0",
+  "description": "MCP server for the Kirimi WhatsApp API — send messages, OTP, broadcasts and WABA templates to AI agents",
   "type": "module",
   "bin": {
     "kirimi-mcp": "dist/index.js"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "bun run src/index.ts",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "test": "npm run build && node --test \"tests/*.test.js\"",
+    "prepublishOnly": "npm run test"
   },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "kirimi",
+    "whatsapp",
+    "whatsapp-api",
+    "otp",
+    "waba"
+  ],
+  "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1"
   },
