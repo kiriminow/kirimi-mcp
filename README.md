@@ -94,6 +94,7 @@ Then point your client at `node /path/to/kirimi-mcp/dist/index.js`.
 |------|---------|
 | `save_contact` | Save one contact. Existing numbers are skipped. |
 | `save_contacts_bulk` | Import up to 1000 contacts. |
+| `get_contacts` | List contacts saved on a QR device's phone (paginated, optional re-read from the phone). |
 
 ### Account
 

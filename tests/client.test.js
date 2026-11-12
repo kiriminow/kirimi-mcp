@@ -153,6 +153,19 @@ describe('handleTool', () => {
     assert.equal('name' in calls[0].body, false)
   })
 
+  test('get_contacts sends paging and filters to /v1/get-contacts', async () => {
+    mockFetch()
+    await handleTool('get_contacts', { device_id: 'D-ABC12', refresh: true, page: 2, limit: 50, saved_only: 'true', search: 'budi' })
+
+    assert.equal(calls[0].url, 'https://api.kirimi.id/v1/get-contacts')
+    assert.equal(calls[0].body.device_id, 'D-ABC12')
+    assert.equal(calls[0].body.refresh, true)
+    assert.equal(calls[0].body.page, 2)
+    assert.equal(calls[0].body.limit, 50)
+    assert.equal(calls[0].body.saved_only, true)
+    assert.equal(calls[0].body.search, 'budi')
+  })
+
   test('get_user_info works without any device configured', async () => {
     mockFetch()
     const res = await handleTool('get_user_info', {})

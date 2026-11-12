@@ -31,6 +31,15 @@ function optNumber(args: Args, key: string): number | undefined {
   return n
 }
 
+function optBoolean(args: Args, key: string): boolean | undefined {
+  const value = args[key]
+  if (value === undefined || value === null || value === '') return undefined
+  if (typeof value === 'boolean') return value
+  if (value === 'true' || value === '1' || value === 1) return true
+  if (value === 'false' || value === '0' || value === 0) return false
+  throw new Error(`"${key}" must be true or false.`)
+}
+
 function reqStringArray(args: Args, key: string): string[] {
   const value = args[key]
   if (!Array.isArray(value) || value.length === 0) {
@@ -268,6 +277,22 @@ export async function handleTool(
               nama: reqString(args, 'nama'),
               nomor: reqString(args, 'nomor'),
               device_id: optString(args, 'device_id'),
+            },
+            credentials,
+          ),
+        )
+
+      case 'get_contacts':
+        return textResult(
+          await apiCall(
+            '/v1/get-contacts',
+            {
+              device_id: resolveDeviceId(args.device_id),
+              refresh: optBoolean(args, 'refresh'),
+              page: optNumber(args, 'page'),
+              limit: optNumber(args, 'limit'),
+              saved_only: optBoolean(args, 'saved_only'),
+              search: optString(args, 'search'),
             },
             credentials,
           ),
