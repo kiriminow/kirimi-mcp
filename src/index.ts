@@ -21,7 +21,7 @@ Rules that prevent failed sends:
 - never send an OTP through send_message. Use send_otp instead.`
 
 const server = new Server(
-  { name: 'kirimi-mcp', version: '1.1.0' },
+  { name: 'kirimi-mcp', version: '1.2.0' },
   { capabilities: { tools: {} }, instructions: INSTRUCTIONS },
 )
 
