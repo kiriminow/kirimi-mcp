@@ -202,6 +202,29 @@ export const tools: Tool[] = [
     },
   },
   {
+    name: 'get_contacts',
+    description:
+      'List the contacts saved on the phone of a QR device (names from the phone address book, plus WhatsApp profile names). Paginated. Not available for WABA numbers.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        device_id: deviceIdProperty,
+        refresh: {
+          type: 'boolean',
+          description:
+            'Re-read the full address book from the phone first (slower; at most once per 10 minutes per device). Default false.',
+        },
+        page: { type: 'number', description: 'Page number, starting at 1. Default 1.' },
+        limit: { type: 'number', description: 'Contacts per page, 1-1000. Default 100.' },
+        saved_only: {
+          type: 'boolean',
+          description: 'Only contacts saved in the phone address book (saved=true). Default false.',
+        },
+        search: { type: 'string', description: 'Case-insensitive match on name or phone number' },
+      },
+    },
+  },
+  {
     name: 'save_contacts_bulk',
     description: 'Import up to 1000 contacts in one call. Existing numbers are skipped.',
     inputSchema: {
